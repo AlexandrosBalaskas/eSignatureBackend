@@ -82,7 +82,10 @@ app.post("/api/start-signature", async (req, res) => {
 
         const requestId = response.body.signatureRequest.signatureRequestId;
         const signUrl = signUrlResp.data.embedded.sign_url;
-        res.json({ signUrl, requestId });
+        res.json({
+          signUrl: `${signUrl}&client_id=31f09cda8cfe081fbde7bb219aaee18c&skip_domain_verification=true`,
+          requestId,
+        });
       });
   } catch (e) {
     console.log(e);
