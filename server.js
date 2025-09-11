@@ -100,7 +100,8 @@ app.post("/hs-events", upload.none(), async (req, res) => {
   const event = callback_data.event?.event_type;
   const requestId = callback_data.signature_request?.signature_request_id;
 
-  if (event === "signature_request_all_signed") {
+  if (event === "signature_request_signed") {
+    //signature_request_all_signed
     console.log("✅ Document completed:", requestId);
     signatureStatus[requestId] = "completed";
 
